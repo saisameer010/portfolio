@@ -1,0 +1,369 @@
+/* Game Canvas Styles */
+#gameCanvas {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+}
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    color: #BB86FC;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: #1F1B24;
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav .nav-header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+nav .nav-header h1 a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none; /* Hidden by default, displayed on small screens via media query */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #BB86FC;
+}
+
+/* Header Styles */
+header {
+    background-color: #1F1B24;
+    padding: 100px 0 50px; /* Reduced padding-top since name moved to nav */
+    text-align: center;
+    position: relative;
+}
+
+header .subtitle {
+    font-size: 1.2em;
+    color: #BB86FC;
+    margin-bottom: 10px;
+    min-height: 24px; /* To prevent layout shift during typewriter effect */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1F1B24;
+    text-align: center;
+    padding: 40px 0;
+}
+
+footer .contact-info p {
+    margin: 5px 0;
+}
+
+footer .contact-info i {
+    margin-right: 8px;
+}
+
+footer .contact-info a {
+    color: #e0e0e0;
+}
+
+footer .contact-info a:hover {
+    color: #BB86FC;
+}
+
+footer p {
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        display: none; /* Hidden by default, toggled via JavaScript */
+        width: 100%;
+        background-color: #1F1B24;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}
+
+/* Navigation Active State */
+.nav-links.nav-active {
+    display: flex !important;
+    flex-direction: column;
+    animation: navLinkFade 0.5s forwards;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Section Styles */
+section {
+    padding: 60px 0;
+}
+
+section h2 {
+    border-bottom: 2px solid #BB86FC;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+/* Card Styles */
+.card {
+    background-color: #1E1E1E;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #BB86FC;
+}
+
+.card h4 {
+    margin-top: 5px;
+    font-weight: normal;
+    color: #BB86FC;
+}
+
+.card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+}
+
+.date {
+    font-style: italic;
+    color: #AAAAAA;
+    margin-bottom: 15px;
+}
+
+/* Grid Container for Projects and Certifications */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Skills Styles */
+/* Skills Styles */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background-color: #1E1E1E;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.skill-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-card p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background-color: #2A2A2A;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%;
+    background-color: #BB86FC;
+    width: 0;
+    animation: loadSkill 2s forwards;
+}
+
+@keyframes loadSkill {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--skill-width);
+    }
+}
+
+/* Responsive Skills Grid */
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+/* Back-to-Top Button Styles */
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #BB86FC;
+    color: #121212;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+}
+
+#back-to-top i {
+    font-size: 1.2em;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1F1B24;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Effects */
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+
+.skill:hover p {
+    color: #BB86FC;
+}
+/* Hover Effects */
+.skill-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+
+#gameOverMessage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #BB86FC;
+    font-size: 2em;
+    text-align: center;
+    z-index: 10001;
+}
